@@ -3,7 +3,6 @@ import { ref} from 'vue';
 import NavigationMenu from "@/components/NavigationMenu.vue";
 import ItemCard from "@/components/ItemCard.vue";
 import ProductService from "@/services/ProductService";
-import ItemPrice from "@/components/ItemPrice.vue";
 
 let optionId = 0;
 const navMenuOptions = ref([
