@@ -35,7 +35,6 @@ function getAllProducts() {
       <ItemCard :item=item></ItemCard>
     </div>
   </div>
-  <ItemPrice :price = 145 :discount = 60></ItemPrice>
   <!--TODO: Make the items align one below the other on smaller devices-->
 </template>
 
