@@ -4,6 +4,7 @@
 import {ref} from "vue";
 import {hoveredStore} from "@/store";
 import ItemDescriptionBox from "@/components/ItemDescriptionBox.vue";
+import ItemPrice from "@/components/ItemPrice.vue";
 
 defineProps({
   item: {
