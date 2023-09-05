@@ -3,6 +3,7 @@
 
 import {ref} from "vue";
 import {hoveredStore} from "@/store";
+import ItemDescriptionBox from "@/components/ItemDescriptionBox.vue";
 
 defineProps({
   item: {
@@ -11,15 +12,21 @@ defineProps({
     id: {Number},
     price: {Number},
     rating: {Number},
-    title: {String},
+    discount: {Number},
+    name: {String},
     description: {String},
     images: {Array},
-    categories: {Array},
-    validator(value) {
-      return (typeof value.id === "number") && (typeof value.price === "number") && (typeof value.rating === "number" && (value.rating >= 0 && value.rating <=5))
-          && (typeof value.title === "string") && (typeof value.description === "string")
-          && (value.images.every(img => typeof img === "string") && (value.categories.every(cat => typeof cat === "string")))
-    }
+    categories: {Array}
+    /*validator(value) {
+      return (typeof value.id === "number")
+          && (typeof value.price === "number")
+          && (typeof value.rating === "number" && (value.rating >= 0 && value.rating <=5))
+          && (typeof value.discount === "number" && (value.discount >= 0 && value.discount <=100))
+          && (typeof value.title === "string")
+          && (typeof value.description === "string")
+          && (value.images.every(img => {return typeof img[0] === "number" && typeof img[1] === "string"})
+          && (value.categories.every(cat => {return typeof cat[0] === "number" && typeof cat[1] === "string"})))
+    }*/
   }
 })
 
@@ -50,18 +57,16 @@ function changeImgBackward() {
   >
     <div id="image-wrapper">
       <img
-          :src="item.images[0]"
-          :alt="item.title"
+          :src="item.images[0].path"
+          :alt="item.name"
       >
     </div>
     <div id="text-wrapper">
-      <span>{{ item.title }}</span>
+      <span>{{ item.name }}</span>
       <p>Some game description</p>
     </div>
     <div id="footer">
-      <div id="price">
-        <span>{{ item.price.toFixed(2) }} lv.</span>
-      </div>
+      <ItemPrice :price = Number(item.price) :discount = Number(item.discount)></ItemPrice>
       <div id="button-pane">
         <button title="Add to cart">
           <img
@@ -117,16 +122,14 @@ function changeImgBackward() {
           </div>
           <img
               id="image-wheel"
-              :src="item.images[imageId]"
-              :alt="item.title"
+              :src="item.images[imageId].path"
+              :alt="item.name"
           >
         </div>
-        <h1>{{item.title}}</h1>
+        <h1>{{ item.name }}</h1>
       </div>
       <div id="right-side-container">
-        <div id="description-container">
-          <p>{{item.description}}</p>
-        </div>
+        <ItemDescriptionBox :description = String(item.description)></ItemDescriptionBox>
       </div>
     </div>
   </Transition>
@@ -177,11 +180,7 @@ function changeImgBackward() {
     width: 100%;
     box-sizing: border-box;
   }
-  #price span {
-    position: relative;
-    top: 25%;
-    font-size: 17px;
-  }
+
   #button-pane {
     display: grid;
     grid-auto-flow: column;
@@ -305,40 +304,6 @@ function changeImgBackward() {
     transition:
         translate 0.5s,
         transform 0.5s 1s;
-  }
-
-  #description-container{
-    padding: 10px;
-    height: 75%;
-    font-family: 'Belanosima', sans-serif;
-    color: #9AA0A6;
-    border-radius: 12px;
-    border: 2px solid #9AA0A6;
-    white-space: pre-wrap;
-    box-sizing: border-box;
-  }
-  #description-container p {
-    margin-top: 10px;
-    margin-inline: 7px;
-    padding-right: 7px;
-    max-height: 95%;
-    overflow: auto;
-    white-space: pre-wrap;
-    overscroll-behavior: contain;
-  }
-  #description-container p::-webkit-scrollbar {
-    width: 7px;
-  }
-  #description-container p::-webkit-scrollbar-track {
-    background: none;
-    padding-left: 2px;
-  }
-  #description-container p::-webkit-scrollbar-thumb {
-    background: #80868B;
-    border-radius: 10px;
-  }
-  #description-container p::-webkit-scrollbar-thumb:hover {
-    background: #9AA0A6;
   }
 
   @media screen and (max-width: 400px) {
