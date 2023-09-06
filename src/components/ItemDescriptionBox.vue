@@ -1,14 +1,9 @@
 <script setup>
+
   defineProps({
-    description: {
-      type: String,
-      required: false,
-      default: "Sorry, we're still working on the description.",
-      validator(value) {
-        return typeof value === "string"
-      }
-    }
+    description: String
   })
+
 </script>
 
 <template>

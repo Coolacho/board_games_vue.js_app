@@ -1,8 +1,10 @@
 <script setup>
+
   defineProps({
     price: Number,
     discount: Number
   })
+
 </script>
 
 <template>
@@ -29,7 +31,7 @@
   div {
     display: inline-block;
     font-family: 'Belanosima', sans-serif;
-    font-size: 17px;
+    font-size: 18px;
   }
   b {
     font-size: 21px;

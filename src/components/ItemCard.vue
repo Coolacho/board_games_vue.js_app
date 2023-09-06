@@ -1,11 +1,11 @@
 <!--suppress CssUnusedSymbol -->
 <script setup>
 
-import {hoveredStore} from "@/store";
-import ItemPrice from "@/components/ItemPrice.vue";
-import ItemCardExpanded from "@/components/ItemCardExpanded.vue";
+  import {hoveredStore} from "@/store";
+  import ItemPrice from "@/components/ItemPrice.vue";
+  import ItemCardExpanded from "@/components/ItemCardExpanded.vue";
 
-const props = defineProps({
+defineProps({
   item: {
     type: Object,
     required: true,
@@ -18,21 +18,19 @@ const props = defineProps({
     images: {Array},
     categories: {Array}
     /*validator(value) {
-      return (typeof value.id === "number")
-          && (typeof value.price === "number")
-          && (typeof value.rating === "number" && (value.rating >= 0 && value.rating <=5))
-          && (typeof value.discount === "number" && (value.discount >= 0 && value.discount <=100))
-          && (typeof value.title === "string")
-          && (typeof value.description === "string")
-          && (value.images.every(img => {return typeof img.id === "number" && typeof img.path === "string"})
-          && (value.categories.every(cat => {return typeof cat.id === "number" && typeof cat.name === "string"})))
+       return (typeof value.id === "number")
+           && (typeof value.price === "number")
+           && (typeof value.rating === "number" && (value.rating >= 0 && value.rating <=5))
+           && (typeof value.discount === "number" && (value.discount >= 0 && value.discount <=100))
+           && (typeof value.title === "string")
+           && (typeof value.description === "string")
+           && (value.images.every(img => {return typeof img.id === "number" && typeof img.path === "string"})
+           && (value.categories.every(cat => {return typeof cat.id === "number" && typeof cat.name === "string"})))
     }*/
   }
 })
 
-provide('description', props.item["description"])
-
-const store = hoveredStore();
+  const store = hoveredStore();
 
 </script>
 
@@ -84,6 +82,7 @@ const store = hoveredStore();
     <ItemCardExpanded
         v-show="store.hovered === item.id"
         @mouseleave="store.unhover()"
+        :item = item
     >
     </ItemCardExpanded>
   </Transition>
@@ -127,8 +126,9 @@ const store = hoveredStore();
     color: #9AA0A6;
   }
   #footer {
-    padding: 15px;
+    padding: 20px;
     display: inline-grid;
+    align-items: center;
     grid-auto-flow: column;
     grid-auto-columns: 50%;
     width: 100%;

@@ -1,26 +1,26 @@
 <script setup>
-import { ref} from 'vue';
-import NavigationMenu from "@/components/NavigationMenu.vue";
-import ItemCard from "@/components/ItemCard.vue";
-import ProductService from "@/services/ProductService";
+  import { ref} from 'vue';
+  import NavigationMenu from "@/components/NavigationMenu.vue";
+  import ItemCard from "@/components/ItemCard.vue";
+  import ProductService from "@/services/ProductService";
 
-let optionId = 0;
-const navMenuOptions = ref([
-  {id: optionId++, text:"Promotions", link:"http://192.168.2.150:5173"},
-  {id: optionId++, text:"New", link:"http://192.168.2.150:5173"},
-  {id: optionId++, text:"Board games", link:"http://192.168.2.150:5173"},
-  {id: optionId++, text:"Accessories", link:"http://192.168.2.150:5173"}
-])
+  let optionId = 0;
+  const navMenuOptions = ref([
+    {id: optionId++, text:"Promotions", link:"http://192.168.2.150:5173"},
+    {id: optionId++, text:"New", link:"http://192.168.2.150:5173"},
+    {id: optionId++, text:"Board games", link:"http://192.168.2.150:5173"},
+    {id: optionId++, text:"Accessories", link:"http://192.168.2.150:5173"}
+  ])
 
-const items = ref(null);
-getAllProducts();
+  const items = ref(null);
+  getAllProducts();
 
-function getAllProducts() {
-  ProductService.getProducts().then((response) =>{
-    items.value = response.data;
-  });
+  function getAllProducts() {
+    ProductService.getProducts().then((response) =>{
+      items.value = response.data;
+    });
 
-}
+  }
 
 </script>
 

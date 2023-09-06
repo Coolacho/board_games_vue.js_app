@@ -1,7 +1,12 @@
 <script setup>
 
-import ItemDescriptionBox from "@/components/ItemDescriptionBox.vue";
-import ItemImageWheel from "@/components/ItemImageWheel.vue";
+  import ItemDescriptionBox from "@/components/ItemDescriptionBox.vue";
+  import ItemImageWheel from "@/components/ItemImageWheel.vue";
+
+  defineProps({
+    item: Object
+  })
+
 </script>
 
 <template>
@@ -9,11 +14,11 @@ import ItemImageWheel from "@/components/ItemImageWheel.vue";
       id="expanded-card-wrapper"
   >
     <div id="left-side-container">
-      <ItemImageWheel :images = Array(item.images) :item-name = String(item.name)></ItemImageWheel>
+      <ItemImageWheel :item-name="String(item.name)" :images="Array(item.images)"></ItemImageWheel>
       <h1>{{ item.name }}</h1>
     </div>
     <div id="right-side-container">
-      <ItemDescriptionBox :description = String(item.description)></ItemDescriptionBox>
+      <ItemDescriptionBox :description="String(item.description)"></ItemDescriptionBox>
     </div>
   </div>
 </template>
