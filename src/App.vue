@@ -43,16 +43,8 @@
 #grid-container{
   display: grid;
   gap: 25px;
-  grid-auto-flow: column;
-  grid-auto-columns: 275px;
-}
-
-@media screen and (max-width: 400px) {
-  #grid-container {
-    grid-auto-flow: row;
-    grid-auto-columns: 100%;
-    justify-items: center;
-  }
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  justify-items: center;
 }
 
 </style>
