@@ -22,7 +22,7 @@
       {{price.toFixed(2)}}
     </span>
     <span>
-      <b>{{price.toFixed(2) * (1 - discount/100)}}</b> lv.
+      <b>{{(price.toFixed(2) * (1 - discount/100)).toFixed(2)}}</b> lv.
     </span>
   </div>
 </template>
