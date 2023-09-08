@@ -32,7 +32,7 @@
         @click="changeImgBackward()"
     >
       <img
-          src="@/assets/left-arrow.png"
+          src="../assets/images/others/left-arrow.png"
           alt="Previous photo"
       >
     </div>
@@ -41,7 +41,7 @@
         @click="changeImgForward(images)"
     >
       <img
-          src="@/assets/left-arrow.png"
+          src="../assets/images/others/left-arrow.png"
           alt="Next photo"
       >
     </div>

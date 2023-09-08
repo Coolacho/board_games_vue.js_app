@@ -54,13 +54,13 @@ defineProps({
       <div id="button-pane">
         <button title="Add to cart">
           <img
-              src="@/assets/add_to_cart_icon.png"
+              src="../assets/images/others/add_to_cart_icon.png"
               alt="add to cart"
           >
         </button>
         <button title="More info">
           <img
-              src="@/assets/info_icon.png"
+              src="../assets/images/others/info_icon.png"
               alt="more info"
           >
         </button>
