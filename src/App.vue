@@ -1,8 +1,6 @@
 <script setup>
   import { ref} from 'vue';
   import NavigationMenu from "@/components/NavigationMenu.vue";
-  import ProductService from "@/services/ProductService";
-  import ProductGrid from "@/components/ProductGrid.vue";
 
   let optionId = 0;
   const navMenuOptions = ref([
