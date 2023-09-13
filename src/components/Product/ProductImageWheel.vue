@@ -3,7 +3,7 @@
 
   defineProps({
     images: Array,
-    itemName: String
+    productName: String
   })
 
   const imageId = ref(0);
@@ -32,7 +32,7 @@
         @click="changeImgBackward()"
     >
       <img
-          src="../assets/images/others/left-arrow.png"
+          src="../../assets/images/others/left-arrow.png"
           alt="Previous photo"
       >
     </div>
@@ -41,14 +41,14 @@
         @click="changeImgForward(images)"
     >
       <img
-          src="../assets/images/others/left-arrow.png"
+          src="../../assets/images/others/left-arrow.png"
           alt="Next photo"
       >
     </div>
     <img
         id="image-wheel"
         :src="images[imageId].path"
-        :alt="itemName"
+        :alt="productName"
     >
   </div>
 </template>

@@ -2,11 +2,11 @@
 <script setup>
 
   import {hoveredStore} from "@/store";
-  import ItemPrice from "@/components/ItemPrice.vue";
-  import ItemCardExpanded from "@/components/ItemCardExpanded.vue";
+  import ItemPrice from "@/components/Product/ProductPrice.vue";
+  import ItemCardExpanded from "@/components/Product/ProductCardExpanded.vue";
 
 defineProps({
-  item: {
+  product: {
     type: Object,
     required: true,
     id: {Number},
@@ -37,30 +37,30 @@ defineProps({
 <template>
   <div
       id="card-wrapper"
-      @mouseenter="store.hover(item.id)"
+      @mouseenter="store.hover(product.id)"
   >
     <div id="image-wrapper">
       <img
-          :src="item.images[0].path"
-          :alt="item.name"
+          :src="product.images[0].path"
+          :alt="product.name"
       >
     </div>
     <div id="text-wrapper">
-      <span>{{ item.name }}</span>
+      <span>{{ product.name }}</span>
       <p>Some game description</p>
     </div>
     <div id="footer">
-      <ItemPrice :price = Number(item.price) :discount = Number(item.discount)></ItemPrice>
+      <ItemPrice :price = Number(product.price) :discount = Number(product.discount)></ItemPrice>
       <div id="button-pane">
         <button title="Add to cart">
           <img
-              src="../assets/images/others/add_to_cart_icon.png"
+              src="../../assets/images/others/add_to_cart_icon.png"
               alt="add to cart"
           >
         </button>
         <button title="More info">
           <img
-              src="../assets/images/others/info_icon.png"
+              src="../../assets/images/others/info_icon.png"
               alt="more info"
           >
         </button>
@@ -69,10 +69,10 @@ defineProps({
   </div>
 
   <!--TODO:-->
-  <!--      -Replace the description with rating and maybe categories in the normal item card-->
-  <!--      -Upgrade the animation to start from the center of the item card and move to the center of the webpage-->
+  <!--      -Replace the description with rating and maybe categories in the normal product card-->
+  <!--      -Upgrade the animation to start from the center of the product card and move to the center of the webpage-->
   <!--      -Add animation for the photo change-->
-  <!--      -Add rating, categories, price and action buttons to the expanded item card-->
+  <!--      -Add rating, categories, price and action buttons to the expanded product card-->
 
   <!--Idea for the animation of photo changing: add all the photos with v-for,-->
   <!--then add v-show which shows only the one with the current imageId-->
@@ -80,9 +80,9 @@ defineProps({
   
   <Transition name="expand">
     <ItemCardExpanded
-        v-show="store.hovered === item.id"
+        v-show="store.hovered === product.id"
         @mouseleave="store.unhover()"
-        :item = item
+        :product = product
     >
     </ItemCardExpanded>
   </Transition>
@@ -93,11 +93,14 @@ defineProps({
   #card-wrapper{
     border-radius: 12px;
     box-shadow: 5px 5px 5px #80868B;
-    max-width: 275px;
+    width: 275px;
+    height: 430px;
     background-color: #3C4043;
     color: white;
   }
   #image-wrapper {
+    object-fit: contain;
+    height: 65%;
     padding-bottom: 5px;
     border-left: 2px solid #3C4043;
     border-top: 2px solid #3C4043;
@@ -114,6 +117,7 @@ defineProps({
   #text-wrapper span{
     width: 250px;
     padding-left: 15px;
+    padding-top: 10px;
     font-family: 'Belanosima', sans-serif;
     font-size: 19px;
     display: inline-block;
@@ -126,11 +130,11 @@ defineProps({
     color: #9AA0A6;
   }
   #footer {
-    padding: 20px;
+    padding: 0 20px 20px;
     display: inline-grid;
     align-items: center;
     grid-auto-flow: column;
-    grid-auto-columns: 50%;
+    grid-template-columns: 55% 45%;
     width: 100%;
     box-sizing: border-box;
   }
@@ -138,7 +142,7 @@ defineProps({
   #button-pane {
     display: grid;
     grid-auto-flow: column;
-    column-gap: 15px;
+    column-gap: 10px;
     justify-content: right;
   }
 
