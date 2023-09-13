@@ -51,7 +51,7 @@ const selectedOption = ref(0)
     padding-bottom: 20px;
     text-align: center;
   }
-  a {
+  router-link {
     padding-inline: 30px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -61,11 +61,11 @@ const selectedOption = ref(0)
     font-family: 'Belanosima', sans-serif;
     font-size: 18px;
   }
-  a.selected {
+  router-link.selected {
     border-radius: 10px;
     background-color: #3C4043;
   }
-  a::before{
+  router-link::before{
     content: '';
     width: 80%;
     height: 5px;
@@ -75,12 +75,12 @@ const selectedOption = ref(0)
     bottom: 15%;
     background-image: linear-gradient(to bottom right, dodgerblue, springgreen);
   }
-  a:not(.selected)::before{
+  router-link:not(.selected)::before{
     transform: scaleX(0);
     transform-origin: right;
     transition: transform .5s;
   }
-  a:not(.selected):hover::before{
+  router-link:not(.selected):hover::before{
     transform: scaleX(1);
     transform-origin: left;
   }
