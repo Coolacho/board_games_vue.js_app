@@ -21,12 +21,12 @@ const selectedOption = ref(0)
           :key="option.id"
           @click="selectedOption = option.id"
       >
-        <a
+        <router-link
+            :to="{ path: option.link }"
             :class="{selected: selectedOption === option.id}"
-            :href=option.link
         >
           {{option.text}}
-        </a>
+        </router-link>
       </li>
     </ul>
   </nav>
