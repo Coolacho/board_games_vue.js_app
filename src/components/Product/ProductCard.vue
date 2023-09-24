@@ -56,7 +56,7 @@
       <p>Some game description</p>
     </div>
     <div id="footer">
-      <ItemPrice :price = Number(product.price) :discount = Number(product.discount)></ItemPrice>
+      <ItemPrice></ItemPrice>
       <div id="button-pane">
         <button title="Add to cart">
           <img
@@ -88,7 +88,6 @@
     <ItemCardExpanded
         v-show="store.hovered === product.id"
         @mouseleave="store.unhover()"
-        :product = product
     >
     </ItemCardExpanded>
   </Transition>
