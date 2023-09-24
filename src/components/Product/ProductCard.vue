@@ -1,34 +1,40 @@
 <!--suppress CssUnusedSymbol -->
 <script setup>
 
+  import {provide} from "vue";
   import {hoveredStore} from "@/store";
   import ItemPrice from "@/components/Product/ProductPrice.vue";
   import ItemCardExpanded from "@/components/Product/ProductCardExpanded.vue";
 
-defineProps({
-  product: {
-    type: Object,
-    required: true,
-    id: {Number},
-    price: {Number},
-    rating: {Number},
-    discount: {Number},
-    name: {String},
-    description: {String},
-    images: {Array},
-    categories: {Array}
-    /*validator(value) {
-       return (typeof value.id === "number")
-           && (typeof value.price === "number")
-           && (typeof value.rating === "number" && (value.rating >= 0 && value.rating <=5))
-           && (typeof value.discount === "number" && (value.discount >= 0 && value.discount <=100))
-           && (typeof value.title === "string")
-           && (typeof value.description === "string")
-           && (value.images.every(img => {return typeof img.id === "number" && typeof img.path === "string"})
-           && (value.categories.every(cat => {return typeof cat.id === "number" && typeof cat.name === "string"})))
-    }*/
-  }
-})
+  const props = defineProps({
+    product: {
+      type: Object,
+      required: true,
+      id: {Number},
+      price: {Number},
+      rating: {Number},
+      discount: {Number},
+      name: {String},
+      description: {String},
+      images: {Array},
+      categories: {Array}
+      /*validator(value) {
+         return (typeof value.id === "number")
+             && (typeof value.price === "number")
+             && (typeof value.rating === "number" && (value.rating >= 0 && value.rating <=5))
+             && (typeof value.discount === "number" && (value.discount >= 0 && value.discount <=100))
+             && (typeof value.title === "string")
+             && (typeof value.description === "string")
+             && (value.images.every(img => {return typeof img.id === "number" && typeof img.path === "string"})
+             && (value.categories.every(cat => {return typeof cat.id === "number" && typeof cat.name === "string"})))
+      }*/
+    }
+  })
+
+  provide('productName', props.product.name);
+  provide('productImages', props.product.images);
+  provide('productDescription', props.product.description);
+  provide('productPriceDiscount', [ props.product.price, props.product.discount ]);
 
   const store = hoveredStore();
 

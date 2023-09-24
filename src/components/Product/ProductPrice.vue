@@ -1,9 +1,8 @@
 <script setup>
 
-  defineProps({
-    price: Number,
-    discount: Number
-  })
+  import {inject} from "vue";
+
+  const [price, discount] = inject('productPriceDiscount');
 
 </script>
 

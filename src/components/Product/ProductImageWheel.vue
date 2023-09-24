@@ -1,10 +1,8 @@
 <script setup>
-  import {ref} from "vue";
+import {inject, ref} from "vue";
 
-  defineProps({
-    images: Array,
-    productName: String
-  })
+  const productName = inject('productName');
+  const productImages = inject('productImages');
 
   const imageId = ref(0);
   function changeImgForward(images) {
@@ -38,7 +36,7 @@
     </div>
     <div
         class="img-change-buttons right"
-        @click="changeImgForward(images)"
+        @click="changeImgForward(productImages)"
     >
       <img
           src="../../assets/images/others/left-arrow.png"
@@ -47,7 +45,7 @@
     </div>
     <img
         id="image-wheel"
-        :src="images[imageId].path"
+        :src="productImages[imageId].path"
         :alt="productName"
     >
   </div>

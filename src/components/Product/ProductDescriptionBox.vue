@@ -1,8 +1,8 @@
 <script setup>
 
-  defineProps({
-    description: String
-  })
+  import {inject} from "vue";
+
+  const description = inject('productDescription');
 
 </script>
 

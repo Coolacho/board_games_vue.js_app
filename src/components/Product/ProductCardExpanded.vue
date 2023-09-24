@@ -2,10 +2,9 @@
 
   import ItemDescriptionBox from "@/components/Product/ProductDescriptionBox.vue";
   import ItemImageWheel from "@/components/Product/ProductImageWheel.vue";
+  import {inject} from "vue";
 
-  defineProps({
-    product: Object
-  })
+  const productName = inject('productName');
 
 </script>
 
@@ -14,11 +13,11 @@
       id="expanded-card-wrapper"
   >
     <div id="left-side-container">
-      <ItemImageWheel :item-name="String(product.name)" :images="Array(product.images)"></ItemImageWheel>
-      <h1>{{ product.name }}</h1>
+      <ItemImageWheel></ItemImageWheel>
+      <h1>{{ productName }}</h1>
     </div>
     <div id="right-side-container">
-      <ItemDescriptionBox :description="String(product.description)"></ItemDescriptionBox>
+      <ItemDescriptionBox></ItemDescriptionBox>
     </div>
   </div>
 </template>
