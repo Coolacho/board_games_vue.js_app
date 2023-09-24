@@ -10,7 +10,6 @@
   function getAllProducts() {
     ProductService.getAllProducts().then((response) =>{
       products.value = response.data;
-      console.log(products.value)
     });
   }
 
