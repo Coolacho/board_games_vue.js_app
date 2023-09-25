@@ -9,9 +9,7 @@
 </script>
 
 <template>
-  <div
-      id="expanded-card-wrapper"
-  >
+  <div id="expanded-card-wrapper">
     <div id="left-side-container">
       <ItemImageWheel></ItemImageWheel>
       <h1>{{ productName }}</h1>
