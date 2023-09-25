@@ -152,18 +152,14 @@
   }
 
   .expand-enter-active {
-    animation: expand 2s ease-in-out forwards;
+    transition: all 2s ease-in-out;
   }
   .expand-leave-active {
-    animation: expand 1s linear forwards reverse;
+    transition: all 1s linear;
   }
-  @keyframes expand {
-    from {
-      transform: scale3d(0, 0, 0);
-    }
-    to {
-      transform: scale3d(100%, 100%, 100%);
-    }
+  .expand-enter-from,
+  .expand-leave-to{
+    transform: scale3d(0, 0, 0);
   }
 
 </style>
