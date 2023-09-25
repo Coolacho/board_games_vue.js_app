@@ -6,7 +6,7 @@
 
 <template>
   <div>
-    <ProductCard v-for="item in products" :key="item.id" :product="item"></ProductCard>
+    <ProductCard v-for="product in products" :key="product.id" :product="product"></ProductCard>
   </div>
 </template>
 
