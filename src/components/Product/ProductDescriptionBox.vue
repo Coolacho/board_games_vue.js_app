@@ -1,8 +1,17 @@
 <script setup>
 
-  import {inject} from "vue";
+import {inject, ref} from "vue";
 
-  const description = inject('productDescription');
+  const descriptionPath = inject('productDescriptionPath');
+  const description = ref(null);
+  function readFile(descriptionPath) {
+    console.log(descriptionPath);
+    fetch(descriptionPath)
+        .then(response => response.text())
+        .then(text => description.value=text);
+  }
+
+  readFile(descriptionPath);
 
 </script>
 

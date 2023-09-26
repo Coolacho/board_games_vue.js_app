@@ -15,7 +15,7 @@
       rating: {Number},
       discount: {Number},
       name: {String},
-      description: {String},
+      descriptionPath: {String},
       images: {Array},
       categories: {Array}
       /*validator(value) {
@@ -33,7 +33,7 @@
 
   provide('productName', props.product.name);
   provide('productImages', props.product.images);
-  provide('productDescription', props.product.description);
+  provide('productDescriptionPath', props.product.descriptionPath);
   provide('productPriceDiscount', [ props.product.price, props.product.discount ]);
 
   const store = hoveredStore();
