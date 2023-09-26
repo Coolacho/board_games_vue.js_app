@@ -1,3 +1,4 @@
+<!--suppress CssUnusedSymbol -->
 <script setup>
 import {inject, ref} from "vue";
 
@@ -42,8 +43,6 @@ import {inject, ref} from "vue";
           alt="Next photo"
       >
     </div>
-    <!--TODO: Add all images with v-for, then add v-show that will match imageId with images array index
-              Add Transition component that has a dynamic name and out-in mode, reference; https://vuejs.org/guide/built-ins/transition.html#transition-between-elements-->
     <TransitionGroup :name="transitionName">
       <img
           v-for="image in productImages"
