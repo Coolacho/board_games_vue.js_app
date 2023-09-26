@@ -5,19 +5,18 @@ import {inject, ref} from "vue";
   const productImages = inject('productImages');
 
   const imageId = ref(0);
-  function changeImgForward(images) {
+  const transitionName = ref(null);
+  function changeImgRight(images) {
     if (imageId.value < images.length-1) {
-      setTimeout(() => {
-        ++imageId.value;
-      }, 2000);
+      transitionName.value="slide-left";
+      ++imageId.value;
     }
   }
 
-  function changeImgBackward() {
+  function changeImgLeft() {
     if (imageId.value > 0) {
-      setTimeout(() => {
-        --imageId.value;
-      }, 2000);
+      transitionName.value="slide-right"
+      --imageId.value;
     }
   }
 
@@ -27,7 +26,7 @@ import {inject, ref} from "vue";
   <div id="wrapper">
     <div
         class="img-change-buttons left"
-        @click="changeImgBackward()"
+        @click="changeImgLeft()"
     >
       <img
           src="../../assets/images/others/left-arrow.png"
@@ -36,18 +35,25 @@ import {inject, ref} from "vue";
     </div>
     <div
         class="img-change-buttons right"
-        @click="changeImgForward(productImages)"
+        @click="changeImgRight(productImages)"
     >
       <img
           src="../../assets/images/others/left-arrow.png"
           alt="Next photo"
       >
     </div>
-    <img
-        id="image-wheel"
-        :src="productImages[imageId].path"
-        :alt="productName"
-    >
+    <!--TODO: Add all images with v-for, then add v-show that will match imageId with images array index
+              Add Transition component that has a dynamic name and out-in mode, reference; https://vuejs.org/guide/built-ins/transition.html#transition-between-elements-->
+    <TransitionGroup :name="transitionName">
+      <img
+          v-for="image in productImages"
+          v-show="productImages.indexOf(image) === imageId"
+          :key="productImages.indexOf(image)"
+          :src="image.path"
+          :alt="productName"
+          class="productImages"
+      >
+    </TransitionGroup>
   </div>
 </template>
 
@@ -57,6 +63,7 @@ import {inject, ref} from "vue";
     height: 65%;
     position: relative;
     overflow: hidden;
+    border-radius: 10px;
   }
 
   .img-change-buttons {
@@ -95,9 +102,31 @@ import {inject, ref} from "vue";
     rotate: 180deg;
   }
 
-  #image-wheel{
+  .productImages {
+    position: absolute;
     border-radius: 10px;
     width: 100%;
     height: 100%;
   }
+  .slide-left-enter-active,
+  .slide-left-leave-active,
+  .slide-right-enter-active,
+  .slide-right-leave-active {
+    transition: all 2s ease-in-out;
+  }
+
+  .slide-left-enter-from,
+  .slide-right-leave-to {
+    opacity: 0;
+    translate: 450px;
+    scale: 50% 50%;
+  }
+
+  .slide-left-leave-to,
+  .slide-right-enter-from {
+    opacity: 0;
+    translate: -450px;
+    scale: 50% 50%;
+  }
+
 </style>
