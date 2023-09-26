@@ -77,12 +77,7 @@
   <!--TODO:-->
   <!--      -Replace the description with rating and maybe categories in the normal product card-->
   <!--      -Upgrade the animation to start from the center of the product card and move to the center of the webpage-->
-  <!--      -Add animation for the photo change-->
   <!--      -Add rating, categories, price and action buttons to the expanded product card-->
-
-  <!--Idea for the animation of photo changing: add all the photos with v-for,-->
-  <!--then add v-show which shows only the one with the current imageId-->
-  <!--and add a <Transition> component for the v-show which will have the enter and leave animations-->
   
   <Transition name="expand">
     <ItemCardExpanded
