@@ -22,13 +22,13 @@
 
 <style scoped>
   #expanded-card-wrapper {
-    width: 75%;
-    height: 80%;
+    width: 85%;
+    height: 85%;
     border: solid 2px #3C4043;
     border-radius: 12px;
     z-index: 2;
-    position: absolute;
-    left: 12.5%;
+    position: fixed;
+    left: 7.5%;
     top: 10%;
     background-color: #3C4043;
     display: grid;
