@@ -63,6 +63,8 @@ import {inject, ref} from "vue";
     position: relative;
     overflow: hidden;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
   }
 
   .img-change-buttons {
@@ -104,7 +106,8 @@ import {inject, ref} from "vue";
   .productImages {
     position: absolute;
     border-radius: 10px;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     height: 100%;
   }
   .slide-left-enter-active,
