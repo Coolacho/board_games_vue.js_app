@@ -2,7 +2,7 @@
 
   import {ref} from "vue";
   import ProductService from "@/services/ProductService";
-  import ProductGrid from "@/components/ProductGrid.vue";
+  import ProductGrid from "@/components/Product/ProductGrid.vue";
 
   const products = ref(null);
   getDiscountedProducts();

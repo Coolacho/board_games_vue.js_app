@@ -13,7 +13,7 @@
 <style scoped>
   div {
     display: grid;
-    grid-template-rows: repeat(auto-fit, minmax(480px, 1fr));
+    grid-auto-rows: 460px;
     grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
     align-items: center;
     justify-items: center;
