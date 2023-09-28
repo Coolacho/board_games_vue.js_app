@@ -19,6 +19,10 @@
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Belanosima&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Belanosima&display=swap');
+
+  body {
+    background-color: #9AA0A655;
+  }
 
 </style>
