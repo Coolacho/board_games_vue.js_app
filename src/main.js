@@ -2,9 +2,9 @@ import { createApp } from 'vue'
 import {createRouter, createWebHistory} from "vue-router";
 import { createPinia } from "pinia";
 import App from './App.vue'
-import PageBoardGamesDiscounted from "@/components/PageBoardGamesDiscounted.vue";
-import PageBoardGamesAll from "@/components/PageBoardGamesAll.vue";
-import PageBoardGamesNew from "@/components/PageBoardGamesNew.vue";
+import PageBoardGamesDiscounted from "@/components/PageProductsDiscounted.vue";
+import PageBoardGamesAll from "@/components/PageProductsAll.vue";
+import PageBoardGamesNew from "@/components/PageProductsNew.vue";
 import PageProductsAccessories from "@/components/PageProductsAccessories.vue";
 
 const routes = [
