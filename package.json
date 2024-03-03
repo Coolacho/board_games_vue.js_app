@@ -2,6 +2,7 @@
   "name": "board_games_app",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite --host --port 5173",
     "build": "vite build",
@@ -14,7 +15,7 @@
     "vue": "^3.3.4"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue": "^5.0.4",
     "vite": "^5.1.4"
   }
 }
