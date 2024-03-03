@@ -8,10 +8,10 @@ import PageBoardGamesNew from "@/components/PageProductsNew.vue";
 import PageProductsAccessories from "@/components/PageProductsAccessories.vue";
 
 const routes = [
-    {path: '/Products/Promotions', component: PageBoardGamesDiscounted},
-    {path: '/Products/New', component: PageBoardGamesNew},
-    {path: '/Products/All', component: PageBoardGamesAll},
-    {path: '/Products/Accessories', component: PageProductsAccessories}
+    {path: '/products/promotions', component: PageBoardGamesDiscounted},
+    {path: '/products/new', component: PageBoardGamesNew},
+    {path: '/products/all', component: PageBoardGamesAll},
+    {path: '/products/accessories', component: PageProductsAccessories}
 ]
 
 const router = createRouter({

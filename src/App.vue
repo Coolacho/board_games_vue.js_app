@@ -4,10 +4,10 @@
 
   let optionId = 0;
   const navMenuOptions = ref([
-    {id: optionId++, text:"Promotions", link:"/Products/Promotions"},
-    {id: optionId++, text:"New", link:"/Products/New"},
-    {id: optionId++, text:"Board games", link:"/Products/All"},
-    {id: optionId++, text:"Accessories", link:"/Products/Accessories"}
+    {id: optionId++, text:"Promotions", link:"/products/promotions"},
+    {id: optionId++, text:"New", link:"/products/new"},
+    {id: optionId++, text:"Board games", link:"/products/all"},
+    {id: optionId++, text:"Accessories", link:"/products/accessories"}
   ])
 
 </script>
