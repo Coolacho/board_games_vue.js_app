@@ -1,8 +1,8 @@
 <script setup>
 
-  import ItemDescriptionBox from "@/components/Product/ProductDescriptionBox.vue";
-  import ItemImageWheel from "@/components/Product/ProductImageWheel.vue";
-  import {inject} from "vue";
+ import {inject} from "vue";
+  import ProductDescriptionBox from "@/components/Product/ProductDescriptionBox.vue";
+  import ProductImageWheel from "@/components/Product/ProductImageWheel.vue";
 
   const productName = inject('productName');
 
@@ -11,11 +11,11 @@
 <template>
   <div id="expanded-card-wrapper">
     <div id="left-side-container">
-      <ItemImageWheel></ItemImageWheel>
+      <ProductImageWheel></ProductImageWheel>
       <h1>{{ productName }}</h1>
     </div>
     <div id="right-side-container">
-      <ItemDescriptionBox></ItemDescriptionBox>
+      <ProductDescriptionBox></ProductDescriptionBox>
     </div>
   </div>
 </template>

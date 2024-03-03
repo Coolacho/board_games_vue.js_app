@@ -3,8 +3,8 @@
 
   import {provide} from "vue";
   import {hoveredStore} from "@/store";
-  import ItemPrice from "@/components/Product/ProductPrice.vue";
-  import ItemCardExpanded from "@/components/Product/ProductCardExpanded.vue";
+  import ProductCardExpanded from "@/components/Product/ProductCardExpanded.vue";
+  import ProductPrice from "@/components/Product/ProductPrice.vue";
 
   const props = defineProps({
     product: {
@@ -56,7 +56,7 @@
       <p>Some game description</p>
     </div>
     <div id="footer">
-      <ItemPrice></ItemPrice>
+      <ProductPrice></ProductPrice>
       <div id="button-pane">
         <button title="Add to cart">
           <img
@@ -80,11 +80,11 @@
   <!--      -Add rating, categories, price and action buttons to the expanded product card-->
   
   <Transition name="expand">
-    <ItemCardExpanded
+    <ProductCardExpanded
         v-show="store.hovered === product.id"
         @mouseleave="store.unhover()"
     >
-    </ItemCardExpanded>
+    </ProductCardExpanded>
   </Transition>
 
 </template>
