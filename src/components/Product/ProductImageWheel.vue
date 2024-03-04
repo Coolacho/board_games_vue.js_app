@@ -65,6 +65,8 @@ import {inject, ref} from "vue";
     border-radius: 10px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    background-color: white;
   }
 
   .img-change-buttons {
@@ -107,8 +109,8 @@ import {inject, ref} from "vue";
     position: absolute;
     border-radius: 10px;
     width: auto;
-    max-width: 100%;
-    height: 100%;
+    max-width: 90%;
+    height: 90%;
   }
   .slide-left-enter-active,
   .slide-left-leave-active,
