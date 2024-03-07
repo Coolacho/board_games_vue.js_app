@@ -34,35 +34,50 @@ const selectedOption = ref(0)
 
 <style scoped>
 
+  nav {
+    top: 0;
+    min-width: 100%;
+    position: sticky;
+    justify-content: center;
+    display: flex;
+    background-color: #dddfe1;
+    box-shadow: 5px 7px 7px #dddfe1;
+    z-index: 5;
+  }
+
   ul {
     list-style-type: none;
+    column-gap: 1%;
+    border-radius: 14px;
     padding-inline: 0;
-    background-color: #17181B;
+    padding-top: 7px;
+    padding-bottom: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 97%;
+    height: 45px;
+    left: 1.5%;
     display: flex;
+    align-items: center;
     justify-content: center;
-    column-gap: 30px;
-    border-radius: 10px;
     overflow: auto;
-    white-space: nowrap;
-    position: sticky;
+    background-color: #17181B;
   }
   li {
-    padding-top: 20px;
-    padding-bottom: 20px;
     text-align: center;
   }
   a {
-    padding-inline: 30px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-inline: 25px;
+    padding-top: 15px;
+    padding-bottom: 18px;
     position: relative;
     color:white;
     text-decoration: none;
     font-family: 'Belanosima', sans-serif;
     font-size: 18px;
+    border-radius: 10px;
   }
   a.selected {
-    border-radius: 10px;
     background-color: #3C4043;
   }
   a::before{
